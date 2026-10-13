@@ -6,31 +6,30 @@ sidebar_position: 1
 
 **Estimate time: 20 minutes (approximate)**
 
-### Prerequisites
+## Prerequisites
 
 Before starting the installation, ensure your system meets the following requirements:
 
-#### 1. Software Installation & Configuration
+### 1. Software Installation & Configuration
 * **Docker**: Install Docker Engine. Follow the official guides for [Linux](https://docs.docker.com/desktop/install/linux/) or [MAC](https://docs.docker.com/desktop/install/mac/).
 * **Docker Compose (V2)**: Ensure `docker compose` is installed and accessible.
 * **Permissions**: Ensure your user account has permissions to run Docker commands (added to the `docker` group) or you have `sudo` access.
 
-#### 2. System Resource Requirements
+### 2. System Resource Requirements
 Running the entire formsflow.ai stack requires sufficient system resources. Ensure Docker is allocated at least:
 * **Memory (RAM)**: Minimum **4 GB** (8 GB or more recommended). *Your machine should have at least 8 GB-16 GB total RAM.*
 * **CPUs**: Minimum **4 Cores**.
 * **Disk Space**: At least **10 GB** of free disk space.
 
-#### 3. General Requirements
+### 3. General Requirements
 * **Active Internet Connection**: Required to download the installer ZIP and pull Docker images (approx. 2-3 GB).
 * **Web Browser**: A modern web browser (e.g., Google Chrome, Mozilla Firefox, Safari) to access the formsflow.ai UI.
 
 ## Step 1: Download the GitHub Repository
 
-In this initial step, download the **Forms Flow AI Deployment** GitHub repository by simply clicking [**` Here `**](https://github.com/AOT-Technologies/forms-flow-ai-deployment/archive/refs/heads/release/v7.3.0.zip)
+In this initial step, download the **Forms Flow AI Deployment** GitHub repository by clicking [**here**](https://github.com/AOT-Technologies/forms-flow-ai-deployment/archive/refs/heads/release/v7.3.0.zip).
 
 A zip file will be downloaded.
-
 
 ## Step 2: Extract the downloaded .zip file
 
@@ -39,16 +38,13 @@ A zip file will be downloaded.
 
 ![extracted folder preview](../static/img/linux/extracted.png)
 
-
-**Now double click and open the extracted folder and go to the `scripts` directory:**
+**Now double-click to open the extracted folder and go to the `scripts` directory:**
 
 ![scripts dir preview](../static/img/linux/scripts-dir.png)
 
-
-There you can see **install.bash** file:
+There you can see the **install.bash** file:
 
 ![install file preview](../static/img/linux/install-file.png)
-
 
 Now open a terminal inside the `scripts` directory:
 
@@ -58,21 +54,20 @@ Now open a terminal inside the `scripts` directory:
   cd /path/to/extracted-folder/scripts
   ```
 
-![.bat file preview](../static/img/linux/open-in-terminal.png)
+![terminal preview](../static/img/linux/open-in-terminal.png)
 
-
-Now type `sudo su` in the terminal to gain elevated privileges which is required for the installation procedure:
+Now type `sudo su` in the terminal to gain elevated privileges, which are required for the installation process:
 
 > [!NOTE]
 > **Linux:** `sudo su` switches you to the root user. If prompted, enter your user password.
-> 
+>
 > **macOS:** `sudo su` works the same way. Alternatively, you can prefix each command with `sudo` instead of switching to root.
 
 ![sudo permissions](../static/img/linux/sudo-su.png)
-- You can type `ls` to see the **install.bash** file there
 
+- You can type `ls` to see the **install.bash** file there.
 
-## Step 3: Install using install.bash file
+## Step 3: Install using the install.bash file
 
 First, give the script executable permission, then run it:
 
@@ -81,52 +76,52 @@ chmod +x install.bash
 ./install.bash
 ```
 
-- It may ask **Do you want to continue** because it may not have been tested on your Docker version. Just enter **`y`** and proceed with the installation.
+- It may display a **Do you want to continue?** prompt if the script has not been tested against your Docker version. Enter **`y`** to proceed with the installation.
 
 ![installation start](../static/img/linux/installation-start.png)
 
-
 a) Verify the IP address shown is correct. If it is correct, enter **`y`**, otherwise enter **`n`** to provide the correct IP:
 
-![IP Address prompt](../static/img/linux/ip-address-prompt.png)
+![IP address prompt](../static/img/linux/ip-address-prompt.png)
 
-b) When asked whether to install **Analytics**, enter **`y`** to include Redash, or **`n`** to skip:
+b) When asked whether to install **Analytics**, enter **`y`** to include Redash, or **`n`** to skip. (To learn more, visit [Redash](https://redash.io/help/).)
 
 ![Redash analytics prompt](../static/img/linux/analytics-prompt.png)
-- If you need the Redash Analytics Engine, provide **`y`**. (To learn more, visit [Redash](https://redash.io/help/)).
 
 c) The installer will then ask for a **Redash API Key**:
+
 ![redash api key prompt](../static/img/7.3.0/linux/redash-prompt.png)
+
 - The Redash application should be available for use at port defaulted to 7000. Open http://localhost:7001/ on your machine and register with any valid credentials:
- ![redash landing page](../static/img/7.3.0/redash-landing.png)
+  ![redash landing page](../static/img/7.3.0/redash-landing.png)
 
-- The API Key can be found at **Settings > Account > API Key**.
- ![redash api page](../static/img/7.3.0/linux/redash-api-page.png)
+- The API Key can be found at **Settings > Account > API Key**:
+  ![redash api page](../static/img/7.3.0/linux/redash-api-page.png)
 
-d) After the installation process has been completed it will show **formsflow.ai is successfully installed**.
+d) Once the installation is complete, the terminal displays **formsflow.ai is successfully installed**.
 
-![Completed](../static/img/linux/complete.png)
+![completed](../static/img/linux/complete.png)
 
-Once successfully installed, you can access the formsflow.ai web application in your browser via `http://localhost:3000` or `http://{your-ip-address}:3000`.
+Once successfully installed, you can access the formsflow.ai web application in your browser via `http://localhost:3000` or `http://{your-ip-address}:3000`, and log in with the default admin credentials `formsflow-admin` / `changeme`.
 
-![Web Application](../static/img/web-application.png)
+![web application](../static/img/web-application.png)
 
 ---
 
-## Step 4: Mail-Configuration
+## Step 4: Mail Configuration (Optional)
 
-For the **email-configuration**, follow the steps below:
+For the **email configuration**, follow the steps below:
 
 ![configuration folder](../static/img/linux/config-dir.png)
 
-Create a folder inside the configuration folder(Inside docker-compose directory) named **bpm-mail-config**.
+Create a folder inside the configuration folder (inside the docker-compose directory) named **bpm-mail-config**.
 
 ![mail configuration file](../static/img/linux/config.png)
 
-Create a file name **mail.config.properties** inside the **bpm-mail-config** folder that just created and copy the below contents and update the values as needed:
+Create a file named **mail.config.properties** inside the **bpm-mail-config** folder you just created, and copy the contents below, updating the values as needed:
 
 ```bash
-# Send mails via SMTP. The given settings are for Gmail 
+# Send mails via SMTP. The given settings are for Gmail
 mail.transport.protocol=smtp
 
 mail.smtp.host=smtp.gmail.com
@@ -154,27 +149,25 @@ mail.password=CHANGEME
 
 ```
 
-- Now run the container to verify the changes.
-
+- Now restart the container to apply the changes.
 
 ## Verifying the Installation status
 
 > The following applications will be started and can be accessed in your browser.
 
  Srl No | Service Name | Usage | Access | Default credentials (userName / Password)|
---- | --- | --- | --- | --- 
+--- | --- | --- | --- | ---
 1|`forms-flow-web`|formsflow Landing web app|`http://localhost:3000`| `formsflow-admin/changeme`
 2|`Keycloak`|Authentication|`http://localhost:8080`| `admin/changeme`
-3|`forms-flow-forms`|form.io form building (Note: Form.io UI is disabled by default). This must be started earlier for resource role id's creation|`http://localhost:3001`|`admin@example.com/changeme`
+3|`forms-flow-forms`|form.io form building (Note: Form.io UI is disabled by default). This must be started earlier for resource role IDs creation|`http://localhost:3001`|`admin@example.com/changeme`
 4|`forms-flow-analytics`|Redash analytics server, This must be started earlier for redash key creation|`http://localhost:7001`|Use the credentials used for registration / [Default user credentials](https://github.com/AOT-Technologies/forms-flow-ai-deployment/blob/main/docs/forms-flow-ai-properties.md)
 5|`forms-flow-api`|API services|`http://localhost:5001`|`Authorization token from keycloak role based user credentials`
 6|`forms-flow-bpm`|Camunda integration|`http://localhost:8000/camunda`| [Default user credentials](https://github.com/AOT-Technologies/forms-flow-ai-deployment/blob/main/docs/forms-flow-ai-properties.md)
-7|`forms-flow-data-layer`|GraphQL integration|`http://localhost:5500/queries`| 
-
+7|`forms-flow-data-layer`|GraphQL integration|`http://localhost:5500/queries`|
 
 ## Uninstall Formsflow (Optional)
 
-Uninstalling is optional and can be performed whenever you wish to remove the formsflow.ai stack from your machine. To uninstall formsflow installed through quick installation, follow the steps:
+Uninstalling is optional and can be performed whenever you wish to remove the formsflow.ai stack from your machine. To uninstall:
 
 1. Go to the folder you extracted earlier and navigate to the `scripts` directory. You will see the **uninstall.bash** file there.
 2. Open a terminal in that directory:
@@ -190,8 +183,7 @@ Uninstalling is optional and can be performed whenever you wish to remove the fo
 
 ![uninstall formsflow](../static/img/linux/uninstall.png)
 
-
-If you face any issues while installing ,please connect with [us](https://github.com/AOT-Technologies/forms-flow-ai/issues).
+If you face any issues while installing, please connect with [us](https://github.com/AOT-Technologies/forms-flow-ai/issues).
 
 ---
 
